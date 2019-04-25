@@ -2,7 +2,7 @@ import requests
 import json
 
 
-def Main():
+def main():
     search_mecanism()
 
 
@@ -15,8 +15,12 @@ def book_request():
 def search_mecanism():
     search = input('O que deseja pesquisar?')
     search_list = search.split(':') and search.split()
-    search_result = book_request().index(search_list[0])
-    print(search_result)
+    nome = search_list[0]
+    lista = book_request()
+    for i in lista:
+        if nome == i.get('name'):
+            abbrev= i.get('abbrev')
+            return abbrev
 
 
-Main()
+main()
